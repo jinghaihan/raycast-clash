@@ -1,0 +1,163 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "clash",
+  "type": "module",
+  "title": "Clash",
+  "version": "0.0.0",
+  "packageManager": "pnpm@10.22.0",
+  "description": "Monitor your Clash with Raycast.",
+  "author": "jinghaihan",
+  "license": "MIT",
+  "homepage": "https://github.com/jinghaihan/raycast-clash#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jinghaihan/raycast-clash.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jinghaihan/raycast-clash/issues"
+  },
+  "keywords": [
+    "clash",
+    "clashX",
+    "clashX Pro"
+  ],
+  "icon": "icon.png",
+  "commands": [
+    {
+      "name": "overview",
+      "title": "Overview",
+      "description": "Overview of Clash status",
+      "mode": "view"
+    },
+    {
+      "name": "mode",
+      "title": "Mode",
+      "description": "Switch proxy mode",
+      "mode": "view"
+    },
+    {
+      "name": "proxies",
+      "title": "Proxies",
+      "description": "Select proxy",
+      "mode": "view"
+    },
+    {
+      "name": "logs",
+      "title": "Logs",
+      "description": "View logs",
+      "mode": "view"
+    },
+    {
+      "name": "toggle",
+      "title": "Toggle System Proxy",
+      "description": "Toggle system proxy on/off",
+      "mode": "no-view"
+    }
+  ],
+  "preferences": [
+    {
+      "name": "app",
+      "title": "App",
+      "type": "dropdown",
+      "required": false,
+      "default": "ClashX Pro",
+      "description": "The app to toggle proxy",
+      "data": [
+        {
+          "title": "Clash",
+          "value": "Clash"
+        },
+        {
+          "title": "ClashX",
+          "value": "ClashX"
+        },
+        {
+          "title": "ClashX Pro",
+          "value": "ClashX Pro"
+        }
+      ]
+    },
+    {
+      "name": "url",
+      "title": "URL",
+      "type": "textfield",
+      "required": false,
+      "default": "http://127.0.0.1:9090",
+      "description": "The URL of the Clash API"
+    },
+    {
+      "name": "secret",
+      "title": "Secret",
+      "type": "textfield",
+      "required": false,
+      "default": "",
+      "description": "The secret of the Clash API"
+    },
+    {
+      "name": "benchMarkTimeout",
+      "title": "Benchmark Timeout",
+      "type": "textfield",
+      "required": false,
+      "default": "5000",
+      "description": "The timeout of the benchmark"
+    },
+    {
+      "name": "benchMarkUrl",
+      "title": "Benchmark URL",
+      "type": "textfield",
+      "required": false,
+      "default": "http://cp.cloudflare.com/generate_204",
+      "description": "The URL of the benchmark"
+    }
+  ],
+  "scripts": {
+    "dev": "ray develop",
+    "build": "ray build -e dist",
+    "deps": "taze major -I",
+    "lint": "eslint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest",
+    "release": "bumpp",
+    "generate": "tsx ./scripts/generate.ts",
+    "prepare": "simple-git-hooks && pnpm generate",
+    "bootstrap": "pnpm install",
+    "prepublishOnly": "pnpm build",
+    "raycast:publish": "@raycast/api publish"
+  },
+  "platforms": [
+    "macOS"
+  ],
+  "dependencies": {
+    "@raycast/api": "catalog:raycast",
+    "@raycast/utils": "catalog:raycast",
+    "ofetch": "catalog:network",
+    "run-applescript": "catalog:utils",
+    "ufo": "catalog:utils",
+    "ws": "catalog:network"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "catalog:lint",
+    "@eslint-react/eslint-plugin": "catalog:lint",
+    "@types/node": "catalog:types",
+    "@types/react": "catalog:types",
+    "@types/ws": "catalog:types",
+    "bumpp": "catalog:cli",
+    "eslint": "catalog:lint",
+    "eslint-plugin-react-hooks": "catalog:lint",
+    "eslint-plugin-react-refresh": "catalog:lint",
+    "lint-staged": "catalog:lint",
+    "pncat": "catalog:cli",
+    "react": "catalog:frontend",
+    "simple-git-hooks": "catalog:lint",
+    "taze": "catalog:cli",
+    "tsx": "catalog:script",
+    "typescript": "catalog:tsc",
+    "vitest": "catalog:test"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}
