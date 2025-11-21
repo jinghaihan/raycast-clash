@@ -2,7 +2,7 @@ import type { Log, LogLevel } from './types'
 import { Action, ActionPanel, Detail, Icon, List } from '@raycast/api'
 import { useMemo, useState } from 'react'
 import { useLogs } from './api'
-import { LOG_LEVEL_COLORS, LOG_LEVELS } from './constants'
+import { LOG_LEVELS } from './constants'
 import { capitalize } from './utils'
 
 export default function Command() {
@@ -22,7 +22,6 @@ export default function Command() {
     >
       {filteredList.map((log, index) => (
         <List.Item
-          icon={{ source: Icon.Circle, tintColor: LOG_LEVEL_COLORS[log.type] }}
           key={index}
           title={log.time ? log.time : ''}
           subtitle={log.payload}
