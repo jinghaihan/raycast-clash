@@ -3,7 +3,7 @@
   "name": "clash",
   "type": "module",
   "title": "Clash",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "packageManager": "pnpm@10.22.0",
   "description": "Monitor your Clash with Raycast.",
   "author": "jinghaihan",
