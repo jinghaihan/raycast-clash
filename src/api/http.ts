@@ -1,5 +1,5 @@
 import type { Config, Proxy, Rule } from '../types'
-import { BENCH_MARK_TIMEOUT, BENCH_MARK_URL } from '../constants'
+import { BENCHMARK_TIMEOUT, BENCHMARK_URL } from '../constants'
 import { request } from '../utils'
 
 export async function getConfigs(): Promise<Config> {
@@ -29,18 +29,18 @@ export async function selectProxy(name: string, proxy: string): Promise<void> {
 
 export async function getProxyDelay(
   name: string,
-  timeout: number = BENCH_MARK_TIMEOUT,
-  benchMarkUrl: string = BENCH_MARK_URL,
+  timeout: number = BENCHMARK_TIMEOUT,
+  benchmarkUrl: string = BENCHMARK_URL,
 ): Promise<number> {
   if (Number.isNaN(timeout))
-    timeout = BENCH_MARK_TIMEOUT
+    timeout = BENCHMARK_TIMEOUT
 
   const { delay } = await request<{ delay: number }>({
     endpoint: `proxies/${name}/delay`,
     method: 'GET',
     params: {
       timeout,
-      url: benchMarkUrl,
+      url: benchmarkUrl,
     },
   })
   return delay

@@ -15,9 +15,9 @@ type ExtensionPreferences = {
   /** Secret - The secret of the Clash API */
   "secret": string,
   /** Benchmark Timeout - The timeout of the benchmark */
-  "benchMarkTimeout": string,
+  "benchmarkTimeout": string,
   /** Benchmark URL - The URL of the benchmark */
-  "benchMarkUrl": string
+  "benchmarkUrl": string
 }
 
 /** Preferences accessible in all the extension's commands */

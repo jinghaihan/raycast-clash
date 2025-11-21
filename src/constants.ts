@@ -8,9 +8,9 @@ export const SET_AS_SYSTEM_PROXY = [
 
 export const PROXY_GROUPS = ['Selector', 'URLTest', 'Fallback', 'LoadBalance', 'Relay']
 
-export const BENCH_MARK_TIMEOUT = 5000
+export const BENCHMARK_TIMEOUT = 5000
 
-export const BENCH_MARK_URL = 'http://cp.cloudflare.com/generate_204'
+export const BENCHMARK_URL = 'http://cp.cloudflare.com/generate_204'
 
 export const MODE_CHOICES = [
   {

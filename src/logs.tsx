@@ -7,7 +7,7 @@ import { capitalize } from './utils'
 
 export default function Command() {
   const { logs, loading, logLevel, setLogLevel } = useLogs()
-  const [searchText, setSearchText] = useState('')
+  const [searchText, setSearchText] = useState<string>('')
 
   const filteredList = useMemo(() => {
     return logs.filter((item: Log) => item.payload.includes(searchText))

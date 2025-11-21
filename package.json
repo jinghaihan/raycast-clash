@@ -94,7 +94,7 @@
       "description": "The secret of the Clash API"
     },
     {
-      "name": "benchMarkTimeout",
+      "name": "benchmarkTimeout",
       "title": "Benchmark Timeout",
       "type": "textfield",
       "required": false,
@@ -102,7 +102,7 @@
       "description": "The timeout of the benchmark"
     },
     {
-      "name": "benchMarkUrl",
+      "name": "benchmarkUrl",
       "title": "Benchmark URL",
       "type": "textfield",
       "required": false,

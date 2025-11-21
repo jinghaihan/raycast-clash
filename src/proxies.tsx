@@ -82,7 +82,7 @@ export default function Command() {
 }
 
 function ProxyGroup({ name, proxies, current, selectable, refresh }: ProxyGroupProps) {
-  const [select, setSelect] = useState(current)
+  const [select, setSelect] = useState<string | undefined>(current)
   const [loading, setLoading] = useState(false)
   const [delays, setDelays] = useState<Record<string, number>>({})
 
@@ -98,7 +98,7 @@ function ProxyGroup({ name, proxies, current, selectable, refresh }: ProxyGroupP
     const accessories: List.Item.Accessory[] = []
 
     if (proxy === select)
-      accessories.push({ icon: Icon.Check })
+      accessories.push({ icon: Icon.Check, tooltip: 'Current' })
 
     if (typeof delays[proxy] === 'number') {
       accessories.push({
@@ -115,8 +115,8 @@ function ProxyGroup({ name, proxies, current, selectable, refresh }: ProxyGroupP
   const getDelay = async (proxy: string) => {
     const delay = await getProxyDelay(
       proxy,
-      Number(preferences.benchMarkTimeout),
-      preferences.benchMarkUrl,
+      Number(preferences.benchmarkTimeout),
+      preferences.benchmarkUrl,
     )
     refresh()
     setDelays(prevDelays => ({ ...prevDelays, [proxy]: delay }))
@@ -204,7 +204,7 @@ function ProxyGroup({ name, proxies, current, selectable, refresh }: ProxyGroupP
               />
             )
           : (
-              <List.Item key={index} title={proxy} accessories={proxy === select ? [{ text: 'Current' }] : []} />
+              <List.Item key={index} title={proxy} accessories={getAccessories(proxy)} />
             ),
       )}
     </List>

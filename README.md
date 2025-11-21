@@ -39,8 +39,8 @@ npx rayext install jinghaihan/raycast-clash
 | `app`              | The app to toggle proxy      | `No`     | ClashX Pro                            |
 | `url`              | The URL of the Clash API     | `No`     | http://127.0.0.1:9090                 |
 | `secret`           | The secret of the Clash API  | `No`     |                                       |
-| `benchMarkTimeout` | The timeout of the benchmark | `No`     | 5000                                  |
-| `benchMarkUrl`     | The URL of the benchmark     | `No`     | http://cp.cloudflare.com/generate_204 |
+| `benchmarkTimeout` | The timeout of the benchmark | `No`     | 5000                                  |
+| `benchmarkUrl`     | The URL of the benchmark     | `No`     | http://cp.cloudflare.com/generate_204 |
 
 <!-- configs -->
 
